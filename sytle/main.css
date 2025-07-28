@@ -11,16 +11,15 @@ body {
   position: relative;
   background: #000; /* fallback */
   padding: 10px;
-  overflow: hidden !important;
 }
 
-body::before {
-  content: "";
-  position: absolute;
+/* عنصر الخلفية الجديد بدلاً من ::before */
+.bg-animation {
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: calc(100vw + 500px); /* توسيع العرض لتحريك الخلفية */
+  width: calc(100vw + 500px);
   background: #7b7b7c 50% no-repeat url(/img/img.jpeg);
   background-size: cover;
   z-index: 0;
@@ -33,7 +32,7 @@ body::before {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-500px); /* تحريك الخلفية لليسار */
+    transform: translateX(-500px);
   }
 }
 
