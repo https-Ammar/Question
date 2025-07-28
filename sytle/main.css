@@ -248,7 +248,6 @@ main,
 @media (max-width: 768px) {
   .background {
     background-attachment: scroll;
-    animation: none;
   }
 
   .header h1 {
