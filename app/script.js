@@ -31,6 +31,7 @@ const progressBar = document.getElementById("progress-bar");
 const quizHeader = document.getElementById("quiz-header");
 const progressContainer = document.getElementById("progress-container");
 
+// تحسينات الأداء
 let confettiInterval;
 
 function initQuiz() {
@@ -76,7 +77,9 @@ function renderQuestion() {
   answerButtons.forEach((button) => {
     button.addEventListener("click", function () {
       selectAnswer(this);
-      nextQuestion();
+      setTimeout(() => {
+        nextQuestion();
+      }, 500);
     });
   });
 }
@@ -170,6 +173,7 @@ function showWinningScreen() {
   quizHeader.style.display = "none";
   progressContainer.style.display = "none";
 
+  // تحسين أداء الكونفيتي
   createConfetti();
   confettiInterval = setInterval(createConfetti, 2000);
 
@@ -181,6 +185,7 @@ function showWinningScreen() {
   });
 }
 
+// تهيئة المسابقة عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", function () {
   initQuiz();
 });

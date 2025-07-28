@@ -1,15 +1,56 @@
 body {
   font-family: "Cairo", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   min-height: 100vh;
-  background: linear-gradient(135deg, #9333ea 0%, #2563eb 50%, #3730a3 100%);
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: relative;
+  background: #000; /* fallback */
+  padding: 10px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(100vw + 500px); /* توسيع العرض لتحريك الخلفية */
+  background: #7b7b7c 50% no-repeat url(/img/img.jpeg);
+  background-size: cover;
+  z-index: 0;
+  opacity: 0.3;
+  animation: bgMove 30s linear infinite;
+}
+
+@keyframes bgMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-500px); /* تحريك الخلفية لليسار */
+  }
+}
+
+main,
+.content,
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+main,
+.content,
+.container {
+  z-index: 1;
+  position: relative;
   padding: 1rem;
-  margin: 0;
-  overflow-x: hidden;
-  overflow: hidden !important;
-  height: 100vh;
 }
 
 .quiz-container {
